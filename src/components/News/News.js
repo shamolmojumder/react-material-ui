@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const News = (props) => {
     //console.log(props);
   
-   const {title,description,urlToImage}= props.article;
+   const {title,description,urlToImage,publishedAt,url}= props.article;
   
     const classes = useStyles();
 return (
@@ -41,6 +41,12 @@ return (
                   description
               }
             </Typography>
+
+            <Typography>
+                Publish Date:{
+                    publishedAt
+                }
+            </Typography>
         </CardContent>
     </CardActionArea>
     <CardActions>
@@ -48,7 +54,7 @@ return (
             Share
         </Button>
         <Button size="small" color="primary">
-            Learn More
+        <a href={url}>Learn More</a>
         </Button>
     </CardActions>
 </Card>

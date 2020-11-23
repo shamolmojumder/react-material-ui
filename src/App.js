@@ -15,7 +15,7 @@ function App() {
     <div >
       <h1> Heading :{articles.length} </h1>
       {
-        articles.map(article=> <News article={article}></News> )
+        articles.map(article=> <News article={article} ></News> )
       }
     <Button color="primary">Hello World</Button>
 
