@@ -2,13 +2,20 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Button } from '@material-ui/core';
 import News from './components/News/News';
+import axios from 'axios';
 function App() {
   const [articles,setArticles]= useState([])
+  // useEffect(()=>{
+  //   const url='http://newsapi.org/v2/everything?q=bitcoin&from=2020-10-23&sortBy=publishedAt&apiKey=5633f1fdb14c4b39b2ee2c2f24394458';
+  //   fetch(url)
+  //   .then(res=>res.json())
+  //   .then(data=>setArticles(data.articles))
+  // },[])
+
   useEffect(()=>{
-    const url='http://newsapi.org/v2/everything?q=bitcoin&from=2020-10-23&sortBy=publishedAt&apiKey=5633f1fdb14c4b39b2ee2c2f24394458';
-    fetch(url)
-    .then(res=>res.json())
-    .then(data=>setArticles(data.articles))
+    const url='http://newsapi.org/v2/everything?q=bitcoin&from=2020-10-25&sortBy=publishedAt&apiKey=5633f1fdb14c4b39b2ee2c2f24394458';
+    axios(url)
+    .then(data=>setArticles(data.data.articles))
   },[])
  
   return (
